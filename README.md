@@ -99,7 +99,7 @@ or
 
 Attribute | Type | Required | Description
 --- | --- | --- | ---
-`q` | int | no | 品質比例(%, 100指的是不變, support jpg/jpeg only)
+`q` | int | no | 壓縮品質比例(%, 100指的是不變, support jpg/jpeg only)
 `s` | int | no | 縮放比例(%, 100指的是不變)
 
 ```http
