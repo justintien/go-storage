@@ -1,0 +1,5 @@
+{
+    "Root": "/upload/file",
+    "Cache": "/cache/image",
+    "URI": "/image/"
+}

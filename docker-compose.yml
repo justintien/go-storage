@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  app:
+    image: go-storage
+    build: ./
+    restart: on-failure
+    ports:
+      - "${GO_EXPOSED_PORT}:${GO_EXPOSED_PORT}"
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=test
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+      TIMEZONE: "${DB_TIMEZONE}"
+      MYSQL_DATABASE: "${DATABASE_NAME}"
